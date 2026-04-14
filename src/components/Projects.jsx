@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Import all project images from assets folder
+// Import all project images from assets folder using URL constructor
 import memoryImg from '../assets/memory1.jpg';
 import aiImg from '../assets/AI.jpg';
 import smart1Img from '../assets/smart1.jpg';
@@ -79,6 +79,10 @@ const ProjectCard = ({ project, onImageClick }) => {
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 ${
               index === currentImg ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`} 
+            onError={(e) => {
+              console.error(`Failed to load image: ${img}`);
+              e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+            }}
           />
         ))}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center justify-center">
@@ -96,10 +100,15 @@ const ProjectCard = ({ project, onImageClick }) => {
           ))}
         </div>
         
-        <div className="pt-4 mt-auto">
+        <div className="pt-4 mt-auto flex flex-col gap-2">
           <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-emerald-500 text-sm font-medium transition">
             <ExternalLink size={16} className="mr-2" /> View Details
           </a>
+          {project.extraLink && (
+            <a href={project.extraLink} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-emerald-500 text-sm font-medium transition">
+              <ExternalLink size={16} className="mr-2" /> {project.extraLinkText || 'View Additional Resource'}
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -108,6 +117,11 @@ const ProjectCard = ({ project, onImageClick }) => {
 
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
 
   return (
     <section id="projects" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,7 +132,7 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} onImageClick={setSelectedImage} />
+          <ProjectCard key={project.id} project={project} onImageClick={handleImageClick} />
         ))}
       </div>
 
@@ -140,6 +154,10 @@ const Projects = () => {
             alt="Full view" 
             className="max-w-full max-h-full rounded-lg shadow-2xl animate-in fade-in zoom-in duration-300"
             onClick={(e) => e.stopPropagation()}
+            onError={(e) => {
+              console.error(`Failed to load full image: ${selectedImage}`);
+              e.target.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
+            }}
           />
         </div>
       )}

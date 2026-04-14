@@ -1,6 +1,10 @@
 import React from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <nav className="fixed w-full top-0 z-50 bg-[#0b0f15]/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,8 +38,14 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Empty spacer for balance */}
-          <div className="w-10"></div>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-gray-800 text-gray-300 hover:text-emerald-500 transition"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
       </div>
     </nav>
