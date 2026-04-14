@@ -31,10 +31,10 @@ const experiences = [
     company: 'Pioneer Academics',
     date: 'Jul 2024 – Oct 2024',
     location: 'Remote / Online',
-    link: '#',
-    linkName: '',
+    link: 'https://drive.google.com/drive/folders/1YPtVKQ0gHUKc10IsB3roViA_xTQAMxGZ?usp=sharing',
+    linkName: 'View Materials',
     description:
-      'Led an independent behavioral science research project under mentorship of a Babson College Associate Professor. Designed and analyzed surveys using statistical methods to study how persuasive messaging influences farmers’ adoption of new technologies.',
+      'Led an independent behavioral science research project under mentorship of a Babson College Associate Professor. Designed and analyzed surveys using statistical methods to study how persuasive messaging influences farmers’ adoption of new technologies, culminating in a formal research paper evaluating hope vs. performance appeals.',
     skills: ['Research', 'Behavioral Science', 'Statistics', 'Data Analysis', 'Survey Design'],
   },
   {
@@ -103,15 +103,18 @@ const Experience = () => {
               </h3>
               <p className="text-sm text-gray-400 mb-4">
                 {exp.date} | {exp.location}{' '}
-                {exp.link && (
-                  <a
-                    href={exp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-500 hover:underline"
-                  >
-                    {exp.linkName || exp.link}
-                  </a>
+                {exp.link && exp.link !== '#' && (
+                  <>
+                    |{' '}
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-500 hover:underline"
+                    >
+                      {exp.linkName || exp.link}
+                    </a>
+                  </>
                 )}
               </p>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">{exp.description}</p>

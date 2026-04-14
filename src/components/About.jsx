@@ -1,6 +1,8 @@
 import React from 'react';
 import { Linkedin, Github } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+// 1. Import the image from your assets folder
+import profileImg from '../assets/profile.png'; 
 
 const About = () => {
   return (
@@ -28,10 +30,10 @@ const About = () => {
             {/* Profile Image */}
             <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-emerald-500/30 mb-6">
               <img
-               src="/profile.jpg"
-               alt="Karim Wessam Profile"
-              className="w-full h-full object-cover"
-                />
+                src={profileImg}
+                alt="Karim Wessam Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Name */}
@@ -81,25 +83,29 @@ const About = () => {
         <div className="md:w-2/3 space-y-6 text-gray-400 leading-relaxed z-10">
 
           <p>
-            Hi, I’m Karim Wessam, an Electronics and Communication Engineering student at AAST
-            (Arab Academy for Science and Technology) with a strong foundation in hardware,
-            embedded systems, and full-stack project development. Over the years, I’ve built
-            end-to-end systems—from wearable health devices to smart farming platforms—designing,
-            programming, and integrating both hardware and software to deliver real-world solutions.
+            Hi, I'm Karim Wessam, an Electronics and Communication Engineering student at AAST
+            (Arab Academy for Science and Technology) who enjoys building complete systems—from
+            physical hardware to data-driven applications.
           </p>
 
           <p>
-            I’m currently enrolled in the Digital Egypt Pioneers Initiative (DEPI) for Data Science,
-            specializing in data engineering and learning to build scalable, data-driven systems that
-            collect, process, and analyze information efficiently. My background in hardware gives me
-            a unique perspective on data collection, sensor integration, and real-time processing,
-            enabling me to tackle projects holistically from the ground up.
+            I've worked on end-to-end projects such as wearable devices and smart agriculture
+            systems, where I design and integrate sensors, microcontrollers, and software to create
+            practical, real-world solutions. This experience gave me a strong foundation in embedded
+            systems, hardware-software integration, and system-level thinking.
           </p>
 
           <p>
-            I’m passionate about creating systems that not only work but make an impact, and I’m
-            looking to bring this mindset to freelance and professional opportunities in the data
-            engineering space.
+            Currently, I'm part of the Digital Egypt Pioneers Initiative (DEPI), focusing on data
+            engineering. I'm learning how to design scalable pipelines and work with data
+            efficiently—but more importantly, I connect this with my hardware background to
+            understand how data is generated, processed, and used in real-world systems.
+          </p>
+
+          <p>
+            I'm particularly interested in building intelligent systems that bridge the physical and
+            digital worlds, and I'm looking for opportunities where I can apply this mindset to
+            create impactful solutions.
           </p>
 
         </div>

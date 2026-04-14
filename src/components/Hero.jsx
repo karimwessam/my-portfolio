@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, FileText, Mail } from 'lucide-react';
+// 1. This import tells Vite to process the image and find it on GitHub
+import profileImg from '../assets/profile.png'; 
 
 const Hero = () => {
   return (
@@ -25,9 +27,8 @@ const Hero = () => {
         </div>
 
         <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl">
-          I build scalable data systems and pipelines, transforming raw information 
-          into structured, reliable infrastructure — backed by a deep understanding 
-          of hardware and real-world system design.
+          I build end-to-end solutions that integrate hardware, data, and software—turning raw signals
+          from the physical world into structured, reliable, and actionable infrastructure.
         </p>
 
         {/* Action Buttons */}
@@ -50,10 +51,10 @@ const Hero = () => {
 
         {/* Social Links */}
         <div className="flex items-center gap-6 pt-6 text-gray-500">
-          <a href="https://github.com/YOUR_GITHUB" className="hover:text-emerald-500 transition-colors">
+          <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noreferrer" className="hover:text-emerald-500 transition-colors">
             <Github size={24} />
           </a>
-          <a href="https://linkedin.com/in/YOUR_LINKEDIN" className="hover:text-emerald-500 transition-colors">
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer" className="hover:text-emerald-500 transition-colors">
             <Linkedin size={24} />
           </a>
           <a href="mailto:kareimwessam@gmail.com" className="hover:text-emerald-500 transition-colors">
@@ -74,9 +75,8 @@ const Hero = () => {
           <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
           
           <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-3xl overflow-hidden border border-gray-800 bg-[#161b22]">
-            {/* Image Path: Ensure your photo is in /public/profile.jpg */}
             <img
-              src="/profile.jpg"
+              src={profileImg}
               alt="Karim Wessam"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out scale-105 group-hover:scale-100"
             />
