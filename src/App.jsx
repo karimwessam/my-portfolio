@@ -5,6 +5,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ArrowUp, Send } from 'lucide-react';
@@ -28,6 +29,7 @@ function App() {
         { <Skills />}
         <Projects />
         <Experience />
+        <Education />
         <Contact /> {/* ✅ Contact is now just a section */}
       </main>
 
