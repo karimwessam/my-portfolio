@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const baseUrl = import.meta.env.BASE_URL;
+// Import all project images from assets folder
+import memoryImg from '../assets/memory1.jpg';
+import aiImg from '../assets/AI.jpg';
+import smart1Img from '../assets/smart1.jpg';
+import smart2Img from '../assets/smart2.jpg';
+import ac1Img from '../assets/ac1.jpg';
+import ac2Img from '../assets/ac2.jpg';
+import ac3Img from '../assets/ac3.jpg';
 
 const projects = [
   {
     id: 1,
     title: 'Memory Companion',
     description: 'Developed a full system including a companion mobile app and hardware unit. Features include geolocation tracking with geofencing alerts, smart medication reminders, and object detection to help patients find items.',
-    images: [`${baseUrl}memory1.jpg`], 
+    images: [memoryImg], 
     tags: ['C++', 'FlutterFlow', 'Arduino', 'IoT', 'Hardware-Software Integration'],
     link: 'https://github.com/karimwessam',
     more: 'Enhanced safety and independence for patients; real-time caregiver notifications.'
@@ -17,7 +24,7 @@ const projects = [
     id: 2,
     title: 'Agricultural Intelligence',
     description: 'A three-stage smart farm system for climate-aware farming, sustainable water use, and agrarian waste recycling. Collected precise environmental data and analyzed it for actionable insights.',
-    images: [`${baseUrl}AI.jpg`],
+    images: [aiImg],
     tags: ['IoT', 'Sensors', 'Smart Farm', 'Data Analysis'],
     link: 'https://isef.net/project/enev068t-agricultural-intelligence-a-i?rc=jamzxgoj',
     more: 'Reduced river water usage by 30%, improved water quality by 75%.'
@@ -26,7 +33,7 @@ const projects = [
     id: 3,
     title: 'Smart Posture Correction System',
     description: 'Wearable system measuring spinal alignment in real-time and providing haptic feedback to correct posture.',
-    images: [`${baseUrl}smart1.jpg`, `${baseUrl}smart2.jpg`],
+    images: [smart1Img, smart2Img],
     tags: ['Arduino', 'IMU Sensors', 'Embedded Systems', 'Sensor Fusion'],
     link: 'https://github.com/karimwessam/Back-Angle',
     more: 'Promoted health awareness and posture correction using real-time data feedback.',
@@ -37,7 +44,7 @@ const projects = [
     id: 4,
     title: 'Regulated AC-to-DC 5V Power Supply',
     description: 'Designed and tested a full hardware solution, from schematic to PCB and final testing, delivering a regulated 5V supply.',
-    images: [`${baseUrl}ac1.jpg`, `${baseUrl}ac2.jpg`, `${baseUrl}ac3.jpg`, `${baseUrl}ac4.jpg`],
+    images: [ac1Img, ac2Img, ac3Img],
     tags: ['Altium Designer', 'PCB Design', 'AC-DC Electronics'],
     link: 'https://github.com/karimwessam', 
     more: 'Strengthened understanding of power electronics, design workflow, and reliability testing.'
@@ -119,7 +126,7 @@ const Projects = () => {
       {selectedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 transition-all"
-          onClick={() => setSelectedImage(null)} // Click background to close
+          onClick={() => setSelectedImage(null)}
         >
           <button 
             className="absolute top-6 right-6 text-white hover:text-emerald-500 transition-colors z-[110]"
@@ -132,7 +139,7 @@ const Projects = () => {
             src={selectedImage} 
             alt="Full view" 
             className="max-w-full max-h-full rounded-lg shadow-2xl animate-in fade-in zoom-in duration-300"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
       )}
