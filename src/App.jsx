@@ -8,29 +8,28 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { ArrowUp, Send } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 function App() {
-  // Scroll to top handler
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0, // scroll to top of the page
-      behavior: 'smooth', // smooth animation
+      top: 0,
+      behavior: 'smooth',
     });
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f15] text-white selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-emerald-500/30 dark:bg-[#0b0f15] dark:text-white transition-colors duration-300">
       <Navbar />
 
       <main>
         <Hero />
         <About />
-        { <Skills />}
+        <Skills />
         <Projects />
         <Experience />
         <Education />
-        <Contact /> {/* ✅ Contact is now just a section */}
+        <Contact />
       </main>
 
       <Footer />

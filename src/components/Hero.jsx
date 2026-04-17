@@ -11,6 +11,8 @@ const smoothScroll = (href) => {
   }
 };
 
+const CV_URL = 'https://drive.google.com/uc?export=download&id=1lyi8JhNjvgh7yf7CsY1kdKfg6KXupMgN';
+
 const Hero = () => {
   return (
     <section
@@ -45,9 +47,9 @@ const Hero = () => {
           >
             View Projects
           </a>
-          {/* ✅ Fixed: BASE_URL makes this work on GitHub Pages */}
+          {/* Download CV */}
           <a
-            href={`${import.meta.env.BASE_URL}cv.pdf`}
+            href={CV_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-transparent border border-gray-700 text-white font-bold rounded-xl hover:border-emerald-500 transition-all flex items-center gap-2"
